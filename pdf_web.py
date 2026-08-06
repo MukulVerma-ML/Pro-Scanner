@@ -12,9 +12,33 @@ st.set_page_config(page_title="ScanWala Live", layout="centered", page_icon="ðŸ“
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
+
 .stApp {
-    background: linear-gradient(135deg, #0a0f1a 0%, #101c2e 50%, #182a42 100%);
+    background: linear-gradient(135deg,#0a0f1a 0%,#101c2e 50%,#182a42 100%);
 }
+
+/* Niche se Upar 50 Particles */
+.stApp::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle, rgba(30,144,255,1) 2px, transparent 2px),
+        radial-gradient(circle, rgba(100,180,255,1) 1.5px, transparent 1.5px),
+        radial-gradient(circle, rgba(0,191,255,1) 2.5px, transparent 2.5px);
+    background-size: 50px 50px, 70px 70px, 90px 90px;
+    background-position: 0 100vh, 0 100vh, 0 100vh;
+    animation: riseUp 6s linear infinite;
+}
+
+@keyframes riseUp {
+    0% { background-position: 0 100vh, 0 100vh, 0 100vh; }
+    100% { background-position: 0 -100vh, 0 -100vh, 0 -100vh; }
+}
+
 .block-container {
     background: rgba(10, 15, 25, 0.85);
     backdrop-filter: blur(20px);
@@ -25,6 +49,7 @@ st.markdown("""
     margin: auto;
     max-width: 700px;
 }
+
 h1 {
     font-family: 'Poppins', sans-serif;
     color: white!important;
@@ -32,6 +57,7 @@ h1 {
     font-weight: 700;
     text-shadow: 0 0 15px rgba(30, 144, 255, 0.8);
 }
+
 .stButton>button {
     background: linear-gradient(90deg, #1E90FF, #00BFFF);
     color: white;
@@ -44,7 +70,6 @@ h1 {
 }
 </style>
 """, unsafe_allow_html=True)
-
 st.markdown("<h1>ðŸ“„Live Scanner</h1>", unsafe_allow_html=True)
 st.markdown('<p style="color:rgba(255,255,255,0.8); text-align:center;">Upload documents with live scanning</p>', unsafe_allow_html=True)
 
